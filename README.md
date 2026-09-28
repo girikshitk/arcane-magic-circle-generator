@@ -1,4 +1,4 @@
-# 🌟 Arcane Lexicon - Procedural Magic Circle Generator & Grimoire
+# 🌟 Arcane - Procedural Magic Circle Generator & Grimoire
 
 An interactive, procedural HTML5 Canvas magic circle formation studio built with vanilla JavaScript, HTML5, custom CSS design system, and Web Audio API sound synthesis.
 
