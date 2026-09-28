@@ -30,6 +30,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Background Ambient Glow */
@@ -127,6 +128,7 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+    flex-shrink: 0;
 }
 
 .brand-icon svg {
@@ -169,6 +171,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap;
 }
 
 .tab-btn:hover {
@@ -214,7 +217,7 @@ body {
     border-color: var(--gold-accent);
 }
 
-/* Minimal Studio Layout */
+/* Minimal Studio Layout Desktop */
 .studio-layout-minimal {
     display: grid;
     grid-template-columns: 380px 1fr;
@@ -223,10 +226,16 @@ body {
     align-items: center;
 }
 
-@media (max-width: 960px) {
-    .studio-layout-minimal {
-        grid-template-columns: 1fr;
-    }
+.panel-info {
+    order: 1;
+}
+
+.canvas-section {
+    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 /* Panel Styling */
@@ -379,13 +388,6 @@ body {
 }
 
 /* Canvas Viewport */
-.canvas-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
 .canvas-wrapper {
     position: relative;
     width: 100%;
@@ -471,3 +473,64 @@ canvas#magicCanvas {
 }
 
 .hidden { display: none !important; }
+
+/* Mobile & Tablet Responsive Media Queries */
+@media (max-width: 880px) {
+    .app-container {
+        padding: 0.85rem;
+    }
+
+    .app-header {
+        flex-direction: column;
+        gap: 0.85rem;
+        padding: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .brand-title {
+        font-size: 1.25rem;
+    }
+
+    .studio-layout-minimal {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Circle ON TOP (order: 1), Sidebar / Info Panel BELOW (order: 2) */
+    .canvas-section {
+        order: 1;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .canvas-wrapper {
+        max-width: 88vw;
+        max-height: 88vw;
+    }
+
+    .panel-info {
+        order: 2;
+        width: 100%;
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+
+    .spell-name-display {
+        font-size: 1.15rem;
+    }
+
+    .detail-row {
+        font-size: 0.8rem;
+    }
+
+    .btn-primary.btn-forge {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .grimoire-grid {
+        grid-template-columns: 1fr;
+    }
+}
