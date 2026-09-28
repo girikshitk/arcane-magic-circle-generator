@@ -474,78 +474,138 @@ canvas#magicCanvas {
     margin-top: auto;
 }
 
+
+.panel-grimoire {
+    width: 100%;
+    margin-top: 1rem;
+}
+
 .hidden { display: none !important; }
 
-/* Dedicated Ultra-Clean Mobile & Tablet Responsive Styles */
-@media (max-width: 850px) {
-    .app-container {
-        padding: 0.6rem 0.75rem 1.5rem;
+/* =============================================
+   RESPONSIVE: Tablet (max-width: 960px)
+   ============================================= */
+@media (max-width: 960px) {
+    .studio-layout-minimal {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    /* Sleek Top Navbar for Mobile */
+    /* Canvas on top, panel below */
+    .canvas-section {
+        order: 1;
+    }
+
+    .panel-info {
+        order: 2;
+        width: 100%;
+    }
+
+    .canvas-wrapper {
+        max-width: 480px;
+    }
+}
+
+/* =============================================
+   RESPONSIVE: Mobile (max-width: 680px)
+   ============================================= */
+@media (max-width: 680px) {
+    .app-container {
+        padding: 0.5rem;
+        padding-bottom: 2rem;
+    }
+
+    /* --- Header: wrap to 2 rows --- */
     .app-header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0.65rem 0.85rem;
-        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        padding: 0.6rem 0.75rem;
+        margin-bottom: 0.75rem;
         border-radius: 0.75rem;
         gap: 0.5rem;
     }
 
-    .brand-title {
-        font-size: 1.05rem;
+    .brand {
+        gap: 0.5rem;
     }
 
     .brand-icon {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
     }
 
     .brand-icon svg {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .brand-title {
+        font-size: 1rem;
+    }
+
+    /* Tabs & audio share the second row */
+    .nav-tabs {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding: 0.25rem;
     }
 
     .tab-btn {
-        padding: 0.45rem 0.75rem;
-        font-size: 0.75rem;
+        flex: 1;
+        justify-content: center;
+        padding: 0.5rem 0.5rem;
+        font-size: 0.72rem;
+        gap: 0.3rem;
     }
 
+    /* Hide tab SVG icons on small screens to save space */
+    .tab-btn svg {
+        display: none;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+
+    .btn-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* --- Main layout: column, circle first --- */
     .studio-layout-minimal {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        align-items: center;
+        gap: 0.85rem;
+        align-items: stretch;
     }
 
-    /* CIRCLE ON TOP (Order 1) - Fits perfectly on screen without scrolling */
     .canvas-section {
         order: 1;
         width: 100%;
         display: flex;
         justify-content: center;
-        margin: 0.25rem 0;
+        padding: 0.5rem 0;
     }
 
     .canvas-wrapper {
-        width: 70vw;
-        height: 70vw;
-        max-width: 270px;
-        max-height: 270px;
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.9) inset, 0 0 25px rgba(139, 92, 246, 0.25);
+        width: calc(100vw - 2rem);
+        max-width: 340px;
+        aspect-ratio: 1 / 1;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.85) inset, 0 0 20px rgba(139, 92, 246, 0.2);
     }
 
-    /* SIDEBAR / INFO PANEL BELOW (Order 2) */
     .panel-info {
         order: 2;
         width: 100%;
         padding: 1rem;
-        border-radius: 1rem;
-        gap: 0.85rem;
+        border-radius: 0.85rem;
+        gap: 0.75rem;
     }
 
+    /* --- Spell Name Box --- */
     .spell-name-box {
-        padding: 0.85rem 1rem;
+        padding: 0.85rem;
         text-align: center;
         border-radius: 0.75rem;
     }
@@ -555,49 +615,143 @@ canvas#magicCanvas {
     }
 
     .spell-name-display {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         line-height: 1.25;
+        word-break: break-word;
     }
 
+    /* --- Detail Rows: prevent overflow --- */
     .characteristics-box {
-        padding: 0.85rem 1rem;
-        gap: 0.5rem;
+        padding: 0.75rem 0.85rem;
+        gap: 0.4rem;
         border-radius: 0.75rem;
     }
 
     .box-title {
-        font-size: 0.8rem;
-        padding-bottom: 0.35rem;
+        font-size: 0.78rem;
+        padding-bottom: 0.3rem;
     }
 
     .details-list {
-        gap: 0.35rem;
-        font-size: 0.78rem;
+        gap: 0.3rem;
+        font-size: 0.75rem;
     }
 
     .detail-row {
-        padding-bottom: 0.25rem;
+        flex-wrap: wrap;
+        gap: 0.15rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .detail-label {
+        font-size: 0.7rem;
+        flex-shrink: 0;
+    }
+
+    .detail-value {
+        font-size: 0.72rem;
+        word-break: break-word;
+        text-align: right;
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* --- Buttons --- */
+    .actions-stack {
+        gap: 0.6rem;
+        margin-top: 0.25rem;
     }
 
     .btn-primary.btn-forge {
-        padding: 0.9rem 1.1rem;
-        font-size: 0.95rem;
+        padding: 0.85rem 1rem;
+        font-size: 0.9rem;
         border-radius: 0.75rem;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.04em;
     }
 
     .btn-secondary {
-        padding: 0.75rem 1rem;
-        font-size: 0.8rem;
+        padding: 0.7rem 0.85rem;
+        font-size: 0.78rem;
         border-radius: 0.75rem;
     }
 
+    /* --- Grimoire view --- */
     .grimoire-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.85rem;
     }
 
     .grimoire-card {
         padding: 0.85rem;
+    }
+
+    .grimoire-thumb {
+        border-radius: 0.6rem;
+    }
+
+    .capacity-badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    #view-grimoire {
+        padding: 1rem !important;
+        border-radius: 0.85rem;
+    }
+}
+
+/* =============================================
+   RESPONSIVE: Small Phone (max-width: 400px)
+   ============================================= */
+@media (max-width: 400px) {
+    .app-container {
+        padding: 0.35rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .app-header {
+        padding: 0.5rem;
+    }
+
+    .brand-title {
+        font-size: 0.88rem;
+    }
+
+    .tab-btn {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.4rem;
+    }
+
+    .canvas-wrapper {
+        width: calc(100vw - 1.5rem);
+        max-width: 300px;
+    }
+
+    .panel-info {
+        padding: 0.75rem;
+    }
+
+    .spell-name-display {
+        font-size: 0.95rem;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem;
+    }
+
+    .detail-value {
+        text-align: left;
+    }
+
+    .btn-primary.btn-forge {
+        padding: 0.75rem;
+        font-size: 0.82rem;
+    }
+
+    .btn-secondary {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.72rem;
     }
 }
